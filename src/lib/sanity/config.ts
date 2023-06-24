@@ -7,6 +7,7 @@ import { visionTool } from '@sanity/vision'
 import { deskTool } from 'sanity/desk'
 import { defineConfig } from '@sanity-typed/types'
 import user from './schemas/user'
+import post from './schemas/post'
 import { sanityConfig } from '@/config/sanity-config'
 
 const { projectId, dataset, apiVersion } = sanityConfig
@@ -17,7 +18,7 @@ const config = defineConfig({
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
   schema: {
-    types: [user, account],
+    types: [user, account, post],
   },
   plugins: [
     deskTool(),
