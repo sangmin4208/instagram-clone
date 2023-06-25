@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation'
 
 import Icons from '@/components/icons'
 import AuthButton from './auth-button'
-import { useSession } from 'next-auth/react'
 interface NavBarProps {}
 
 const menu = [
