@@ -1,4 +1,3 @@
-import AuthProvider from '@/contexts/auth-provider'
 import './globals.css'
 import 'easymde/dist/easymde.min.css'
 import { Inter } from 'next/font/google'
@@ -16,9 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <AuthProvider>
-        <body className={inter.className}>{children}</body>
-      </AuthProvider>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
