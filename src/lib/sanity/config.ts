@@ -9,6 +9,7 @@ import { defineConfig } from '@sanity-typed/types'
 import user from './schemas/user'
 import post from './schemas/post'
 import { sanityConfig } from '@/config/sanity-config'
+import { markdownSchema } from 'sanity-plugin-markdown/next'
 
 const { projectId, dataset, apiVersion } = sanityConfig
 
@@ -23,6 +24,7 @@ const config = defineConfig({
   plugins: [
     deskTool(),
     unsplashImageAsset(),
+    markdownSchema(),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),

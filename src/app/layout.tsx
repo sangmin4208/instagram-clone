@@ -1,7 +1,7 @@
 import AuthProvider from '@/contexts/auth-provider'
 import './globals.css'
+import 'easymde/dist/easymde.min.css'
 import { Inter } from 'next/font/google'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
