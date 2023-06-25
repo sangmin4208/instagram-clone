@@ -1,8 +1,9 @@
 'use client'
 
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import { FunctionComponent } from 'react'
 import { Button } from './ui/button'
+import { usePathname, useRouter } from 'next/navigation'
 
 interface AuthButtonProps {}
 
@@ -14,6 +15,8 @@ const displayLookUp = {
 
 const AuthButton: FunctionComponent<AuthButtonProps> = () => {
   const { status } = useSession()
+  const pathname = usePathname()
+  const router = useRouter()
   const isSignedIn = status === 'authenticated'
   const isSignedOut = status === 'unauthenticated'
   const isLoading = status === 'loading'
@@ -24,7 +27,9 @@ const AuthButton: FunctionComponent<AuthButtonProps> = () => {
       onClick={() => {
         if (isLoading) return
         if (isSignedIn) signOut()
-        if (isSignedOut) signIn()
+        if (isSignedOut) {
+          router.push(`/sign-in?callbackUrl=${encodeURIComponent(pathname)}`)
+        }
       }}
     >
       {displayLookUp[status]}

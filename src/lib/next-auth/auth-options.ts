@@ -1,17 +1,28 @@
 import { AuthOptions } from 'next-auth'
 import { SanityAdapter } from 'next-auth-sanity'
 import GoogleProvider from 'next-auth/providers/google'
+import GithubProvider from 'next-auth/providers/github'
 
 import { nextAuthConfig } from '@/config/next-auth-config'
 import { client } from '@/lib/sanity/client'
+import { AppPath } from '@/config/app-path'
 
-const { googleClientId, googleClientSecret } = nextAuthConfig
+const {
+  googleClientId,
+  googleClientSecret,
+  githubClientId,
+  githubClientSecret,
+} = nextAuthConfig
 
 export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: googleClientId,
       clientSecret: googleClientSecret,
+    }),
+    GithubProvider({
+      clientId: githubClientId,
+      clientSecret: githubClientSecret,
     }),
   ],
   session: {
@@ -28,5 +39,8 @@ export const authOptions = {
         },
       }
     },
+  },
+  pages: {
+    signIn: AppPath.signIn,
   },
 } as AuthOptions

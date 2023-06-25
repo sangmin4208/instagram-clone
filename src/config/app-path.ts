@@ -1,6 +1,6 @@
 export const AppPath = {
   home: '/',
-  login: '/login',
+  signIn: '/sign-in',
   search: '/search',
   createPost: '/create-post',
 }

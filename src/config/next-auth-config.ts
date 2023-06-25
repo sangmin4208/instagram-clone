@@ -14,8 +14,19 @@ const authSecret = assertValue(
   'AUTH_SECRET is not defined'
 )
 
+const githubClientId = assertValue(
+  process.env.GITHUB_CLIENT_ID,
+  'GITHUB_CLIENT_ID is not defined'
+)
+const githubClientSecret = assertValue(
+  process.env.GITHUB_CLIENT_SECRET,
+  'GITHUB_CLIENT_SECRET is not defined'
+)
+
 export const nextAuthConfig = {
   googleClientId,
   googleClientSecret,
+  githubClientId,
+  githubClientSecret,
   authSecret,
 }
