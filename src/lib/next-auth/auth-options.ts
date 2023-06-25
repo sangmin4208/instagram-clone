@@ -1,11 +1,10 @@
 import { AuthOptions } from 'next-auth'
-import { SanityAdapter } from 'next-auth-sanity'
 import GoogleProvider from 'next-auth/providers/google'
 import GithubProvider from 'next-auth/providers/github'
 
 import { nextAuthConfig } from '@/config/next-auth-config'
-import { client } from '@/lib/sanity/client'
 import { AppPath } from '@/config/app-path'
+import { authAdapter } from './auth-adapter'
 
 const {
   googleClientId,
@@ -29,7 +28,7 @@ export const authOptions = {
     strategy: 'jwt',
   },
   secret: nextAuthConfig.authSecret,
-  adapter: SanityAdapter(client),
+  adapter: authAdapter,
   callbacks: {
     session({ session, token }) {
       return {
