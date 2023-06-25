@@ -1,8 +1,9 @@
 import { AuthOptions } from 'next-auth'
 import { SanityAdapter } from 'next-auth-sanity'
-import { client } from '@lib/sanity/client'
 import GoogleProvider from 'next-auth/providers/google'
+
 import { nextAuthConfig } from '@/config/next-auth-config'
+import { client } from '@/lib/sanity/client'
 
 const { googleClientId, googleClientSecret } = nextAuthConfig
 
