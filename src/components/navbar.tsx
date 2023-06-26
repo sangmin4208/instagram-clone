@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation'
 
 import Icons from '@/components/icons'
 import AuthButton from './auth-button'
+import { useSession } from 'next-auth/react'
+import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar'
 interface NavBarProps {}
 
 const menu = [
@@ -31,6 +33,7 @@ const menu = [
 
 const NavBar: FunctionComponent<NavBarProps> = ({}) => {
   const pathname = usePathname()
+  const { data: session } = useSession()
   return (
     <section className="container mb-2 border-b">
       <nav className="z-10 flex items-center justify-between p-2 ">
@@ -47,6 +50,15 @@ const NavBar: FunctionComponent<NavBarProps> = ({}) => {
               </li>
             ))}
           </ul>
+          {session?.user?.image && (
+            <Link href={AppPath.profile}>
+              <Avatar>
+                <AvatarImage src={session.user.image} />
+                <AvatarFallback>{session.user.displayName}</AvatarFallback>
+              </Avatar>
+            </Link>
+          )}
+
           <AuthButton />
         </section>
       </nav>

@@ -3,4 +3,5 @@ export const AppPath = {
   signIn: '/sign-in',
   search: '/search',
   createPost: '/create-post',
+  profile: '/profile',
 }

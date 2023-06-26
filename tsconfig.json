@@ -24,6 +24,7 @@
       "@/config/*": ["./src/config/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/components/*": ["./src/components/*"],
+      "@/ui/*": ["./src/components/ui/*"],
       "@/shadcn/*": ["./src/lib/shadcn-ui/*"]
     }
   },
