@@ -1,13 +1,13 @@
 import { SanityAdapter } from 'next-auth-sanity'
-import { Adapter, AdapterUser } from 'next-auth/adapters'
 import { client } from '../sanity/client'
 import { randomUUID } from 'crypto'
+import { AdapterUser } from 'next-auth/adapters'
 
 const sanityAdapter = SanityAdapter(client)
 
 export const authAdapter = {
   ...sanityAdapter,
-  createUser: async (user) => {
+  createUser: async (user: AdapterUser) => {
     const id = `user.${randomUUID()}`
     const data = await client.createIfNotExists({
       _id: id,
@@ -20,7 +20,8 @@ export const authAdapter = {
     return {
       id: data._id,
       email: data.email,
+      displayName: data.displayName,
       emailVerified: user.emailVerified,
     }
   },
-} as Adapter
+}

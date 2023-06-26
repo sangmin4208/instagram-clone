@@ -6,8 +6,9 @@ export type UserDetail = Pick<
   | 'email'
   | 'image'
   | 'name'
-  | '_id'
   | 'following'
   | 'followers'
   | 'bookmarks'
->
+> & {
+  id: string
+}

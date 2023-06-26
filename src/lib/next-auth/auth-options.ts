@@ -5,6 +5,7 @@ import GithubProvider from 'next-auth/providers/github'
 import { nextAuthConfig } from '@/config/next-auth-config'
 import { AppPath } from '@/config/app-path'
 import { authAdapter } from './auth-adapter'
+import { Adapter } from 'next-auth/adapters'
 
 const {
   googleClientId,
@@ -28,13 +29,18 @@ export const authOptions = {
     strategy: 'jwt',
   },
   secret: nextAuthConfig.authSecret,
-  adapter: authAdapter,
+  adapter: authAdapter as unknown as Adapter,
   callbacks: {
-    session({ session, token }) {
+    session: async ({ session, token }) => {
+      const user = await authAdapter.getUser(token.sub!)
+      if (!user) return session
       return {
         user: {
-          ...session.user,
-          id: token.sub,
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          image: user.image,
+          displayName: user.displayName,
         },
       }
     },
