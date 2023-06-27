@@ -1,11 +1,11 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar'
 import { FunctionComponent } from 'react'
 import { SimpleUserProfile } from '@/types/user'
-interface FollowingListItem {
+interface FollowingListItemProps {
   following: SimpleUserProfile
 }
 
-const FollowingListItem: FunctionComponent<FollowingListItem> = ({
+const FollowingListItem: FunctionComponent<FollowingListItemProps> = ({
   following,
 }) => {
   return (

@@ -31,7 +31,7 @@ const menu = [
   },
 ]
 
-const NavBar: FunctionComponent<NavBarProps> = ({}) => {
+const NavBar: FunctionComponent<NavBarProps> = () => {
   const pathname = usePathname()
   const { data: session } = useSession()
   return (

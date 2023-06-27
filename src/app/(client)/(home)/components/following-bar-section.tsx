@@ -8,9 +8,7 @@ import { useFetchFollowings } from '../hooks/use-fetch-followings'
 
 interface FollowingBarSectionProps {}
 
-const FollowingBarSection: FunctionComponent<
-  FollowingBarSectionProps
-> = ({}) => {
+const FollowingBarSection: FunctionComponent<FollowingBarSectionProps> = () => {
   const { data, hasMore, size, setSize } = useFetchFollowings()
   return (
     <section>
