@@ -1,15 +1,15 @@
-import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 /**
  * This configuration is used to for the Sanity Studio that’s mounted on the `/app/studio/[[...index]]/page.tsx` route
  */
 import { account } from 'next-auth-sanity/schemas'
-import { visionTool } from '@sanity/vision'
-import { deskTool } from 'sanity/desk'
 import { defineConfig } from '@sanity-typed/types'
-import user from './schemas/user'
+import { deskTool } from 'sanity/desk'
+import { markdownSchema } from 'sanity-plugin-markdown/next'
 import post from './schemas/post'
 import { sanityConfig } from '@/config/sanity-config'
-import { markdownSchema } from 'sanity-plugin-markdown/next'
+import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+import user from './schemas/user'
+import { visionTool } from '@sanity/vision'
 
 const { projectId, dataset, apiVersion } = sanityConfig
 

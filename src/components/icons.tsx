@@ -1,9 +1,9 @@
 import {
-  Home,
-  Search,
-  PlusSquare,
   Github,
+  Home,
   LucideLogOut as LogOut,
+  PlusSquare,
+  Search,
 } from 'lucide-react'
 import { FcGoogle as Google } from 'react-icons/fc'
 const Icons = {

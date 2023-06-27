@@ -1,8 +1,9 @@
 'use client'
 import { signOut, useSession } from 'next-auth/react'
-import { FunctionComponent } from 'react'
-import { Button } from './ui/button'
 import { usePathname, useRouter } from 'next/navigation'
+
+import { Button } from './ui/button'
+import { FunctionComponent } from 'react'
 
 interface AuthButtonProps {}
 

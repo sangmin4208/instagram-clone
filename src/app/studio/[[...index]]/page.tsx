@@ -9,8 +9,8 @@
  * https://github.com/sanity-io/next-sanity
  */
 
-import { NextStudio } from 'next-sanity/studio'
 import { Config } from 'sanity'
+import { NextStudio } from 'next-sanity/studio'
 
 import config from '@/lib/sanity/config'
 

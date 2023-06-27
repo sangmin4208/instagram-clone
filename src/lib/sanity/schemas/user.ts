@@ -1,4 +1,4 @@
-import { defineField, defineType, defineArrayMember } from '@sanity-typed/types'
+import { defineArrayMember, defineField, defineType } from '@sanity-typed/types'
 
 const user = defineType({
   title: 'User',

@@ -1,6 +1,6 @@
 import NextAuth, { DefaultUser } from 'next-auth'
-import { UserSchema } from '../../types/user'
 import { AdapterUser } from 'next-auth/adapters'
+import { UserSchema } from '../../types/user'
 
 declare module 'next-auth' {
   interface Session {

@@ -1,6 +1,7 @@
+import { FunctionComponent } from 'react'
+
 import GitHubSignInButton from '@/components/github-sign-in-button'
 import GoogleSignInButton from '@/components/google-sign-in-button'
-import { FunctionComponent } from 'react'
 interface SignInPageProps {
   error?: string
 }

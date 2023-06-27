@@ -1,6 +1,6 @@
-import createImageUrlBuilder from '@sanity/image-url'
 import type { Image } from 'sanity'
 
+import createImageUrlBuilder from '@sanity/image-url'
 import { sanityConfig } from '@/config/sanity-config'
 
 const imageBuilder = createImageUrlBuilder({

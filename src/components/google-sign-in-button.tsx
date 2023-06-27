@@ -1,11 +1,12 @@
 'use client'
 
-import { FunctionComponent } from 'react'
-import { signIn } from 'next-auth/react'
 import { Button } from './ui/button'
-import { useCallbackUrlSearchParam } from '@/hooks/use-callback-url-search-param'
+import { FunctionComponent } from 'react'
 import Icons from './icons'
+
 import { cn } from '@/lib/shadcn-ui/utils'
+import { signIn } from 'next-auth/react'
+import { useCallbackUrlSearchParam } from '@/hooks/use-callback-url-search-param'
 
 interface GoogleInButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode

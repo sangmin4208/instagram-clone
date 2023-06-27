@@ -1,8 +1,9 @@
 'use client'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
-import { useRouter } from 'next/navigation'
 import { FunctionComponent } from 'react'
-import SignInPage from '../../sign-in/sign-in-page'
+import SignInPage from '@/app/(client)/@authModal/(.)sign-in/page'
+
+import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 interface PageProps {
   searchParams?: {

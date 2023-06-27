@@ -1,8 +1,8 @@
-import { UserDetail } from '@/types/user'
+import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar'
 import { FunctionComponent } from 'react'
-import { Avatar, AvatarImage, AvatarFallback } from '@/ui/avatar'
+import { UserProfile } from '@/types/user'
 interface SideBarProps {
-  user: UserDetail
+  user: UserProfile
 }
 
 const SideBar: FunctionComponent<SideBarProps> = async ({

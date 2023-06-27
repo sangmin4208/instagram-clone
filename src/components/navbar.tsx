@@ -1,13 +1,13 @@
 'use client'
-import { AppPath } from '@/config/app-path'
-import Link from 'next/link'
-import { FunctionComponent } from 'react'
-import { usePathname } from 'next/navigation'
-
-import Icons from '@/components/icons'
-import AuthButton from './auth-button'
-import { useSession } from 'next-auth/react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar'
+import { AppPath } from '@/config/app-path'
+import AuthButton from './auth-button'
+import { FunctionComponent } from 'react'
+import Icons from '@/components/icons'
+import Link from 'next/link'
+
+import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 interface NavBarProps {}
 
 const menu = [

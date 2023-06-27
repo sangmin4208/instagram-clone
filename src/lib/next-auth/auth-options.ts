@@ -1,11 +1,11 @@
-import { AuthOptions } from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
-import GithubProvider from 'next-auth/providers/github'
-
-import { nextAuthConfig } from '@/config/next-auth-config'
-import { AppPath } from '@/config/app-path'
-import { authAdapter } from './auth-adapter'
 import { Adapter } from 'next-auth/adapters'
+import { AppPath } from '@/config/app-path'
+import { AuthOptions } from 'next-auth'
+import GithubProvider from 'next-auth/providers/github'
+import GoogleProvider from 'next-auth/providers/google'
+
+import { authAdapter } from './auth-adapter'
+import { nextAuthConfig } from '@/config/next-auth-config'
 
 const {
   googleClientId,

@@ -1,5 +1,6 @@
-import AuthProvider from '@/contexts/auth-provider'
 import 'easymde/dist/easymde.min.css'
+
+import AuthProvider from '@/contexts/auth-provider'
 import NavBar from '@/components/navbar'
 
 export const metadata = {

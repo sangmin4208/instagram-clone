@@ -1,10 +1,18 @@
 import { UserSchema } from './schemas'
 
-export type UserDetail = Pick<
+export type UserProfile = Pick<
   UserSchema,
   'displayName' | 'email' | 'image' | 'name' | 'bookmarks'
 > & {
   id: string
-  following: UserDetail[]
-  followers: UserDetail[]
+}
+
+export type SimpleUserProfile = Pick<
+  UserProfile,
+  'id' | 'displayName' | 'image'
+>
+
+export type FollowingInfo = {
+  followings: SimpleUserProfile[]
+  totalCount: number
 }

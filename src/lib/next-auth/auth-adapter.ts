@@ -1,7 +1,7 @@
+import { AdapterUser } from 'next-auth/adapters'
 import { SanityAdapter } from 'next-auth-sanity'
 import { client } from '../sanity/client'
 import { randomUUID } from 'crypto'
-import { AdapterUser } from 'next-auth/adapters'
 
 const sanityAdapter = SanityAdapter(client)
 

@@ -1,5 +1,5 @@
-import config from '@/lib/sanity/config'
 import { InferSchemaValues } from '@sanity-typed/types'
+import config from '@/lib/sanity/config'
 
 type Values = InferSchemaValues<typeof config>
 
