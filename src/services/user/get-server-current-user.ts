@@ -10,6 +10,9 @@ import { getUserProfileById } from '@/services/user/get-user-profile-by-id'
 export const getServerCurrentUser = cache(
   async (): Promise<UserProfile | null> => {
     const session = await getServerSession(authOptions)
+    if (!session) {
+      return null
+    }
     const userId = session?.user?.id
     if (!userId) {
       return null

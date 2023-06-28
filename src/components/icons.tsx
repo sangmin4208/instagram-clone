@@ -4,6 +4,7 @@ import {
   LucideLogOut as LogOut,
   PlusSquare,
   Search,
+  SmilePlus,
 } from 'lucide-react'
 import { FcGoogle as Google } from 'react-icons/fc'
 const Icons = {
@@ -13,5 +14,6 @@ const Icons = {
   Github,
   Google,
   LogOut,
+  SmilePlus,
 }
 export default Icons

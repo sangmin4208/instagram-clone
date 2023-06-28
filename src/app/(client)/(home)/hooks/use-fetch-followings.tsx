@@ -1,18 +1,31 @@
+import { useEffect, useState } from 'react'
+
 import { ApiEndPoint } from '@/config/api-end-point'
 import { FollowingInfo } from '@/types/user'
+import { PaginiationLimit } from '@/config/pagination-limit'
 
 import useSWRInfinite from 'swr/infinite'
-import { useState } from 'react'
 
 export const useFetchFollowings = () => {
   const [hasMore, setHasMore] = useState(true)
   const result = useSWRInfinite<FollowingInfo>((index, previousPageData) => {
-    if (previousPageData && !previousPageData.followings.length) {
-      setHasMore(false)
+    if (!hasMore && previousPageData !== null) {
       return null
     }
-    return `${ApiEndPoint.fetchMyFollowings({ page: index, limit: 2 })}`
+    return `${ApiEndPoint.fetchMyFollowings({
+      page: index,
+      limit: PaginiationLimit.followings,
+    })}`
   }, fetcher)
+
+  useEffect(() => {
+    if (result.data) {
+      const hasMore =
+        result.data[result.data.length - 1].followings.length ===
+        PaginiationLimit.followings
+      setHasMore(hasMore)
+    }
+  }, [result.data])
 
   return {
     ...result,

@@ -4,7 +4,7 @@ interface PostListProps {}
 const PostList: FunctionComponent<PostListProps> = () => {
   return (
     <section>
-      <h2>PostListr</h2>
+      <h2>PostList </h2>
     </section>
   )
 }

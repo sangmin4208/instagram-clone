@@ -54,6 +54,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-multi-carousel": "^2.8.4",
     "sanity": "^3.12.2",
     "sanity-plugin-asset-source-unsplash": "^1.1.0",
     "sanity-plugin-markdown": "^4.1.0",

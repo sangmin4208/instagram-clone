@@ -11,7 +11,9 @@ export default async function Home() {
       <main className="p-0 md:p-16">
         <section className="flex flex-col md:flex-row">
           <section className="grow">
-            {user && <FollowingBarSection />}
+            <div className="max-w-[600px]">
+              {user && <FollowingBarSection />}
+            </div>
             <PostList />
           </section>
           <section className="min-w[480px]">

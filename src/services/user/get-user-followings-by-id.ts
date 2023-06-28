@@ -11,18 +11,20 @@ export const getUserFollowingsById = cache(
     const start = page === 0 ? 0 : page * limit
     const end = start + limit - 1
 
-    const user = await client.fetch(
+    const info = await client.fetch(
       `*[_type == "user" && _id == $id][0]{
       'followings': following[$start..$end]->{
-        _id,
+        'id':_id,
         displayName,
         image,
       },
-      'count': count(following[$start..$end]),
       'totalCount': count(following),
     }`,
       { id, start, end }
     )
-    return user
+    return {
+      followings: info.followings ?? [],
+      totalCount: info.totalCount ?? 0,
+    }
   }
 )

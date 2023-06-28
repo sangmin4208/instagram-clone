@@ -46,9 +46,7 @@ export const initializeEditor = async ({
 
         config: {
           uploader: {
-            uploadByFile(file: File) {
-              console.log(file)
-            },
+            uploadByFile(file: File) {},
           },
         },
         shortcut: 'CMD+SHIFT+I',

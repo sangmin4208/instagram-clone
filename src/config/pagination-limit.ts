@@ -1,3 +1,3 @@
 export const PaginiationLimit = {
-  followings: 10,
+  followings: 6,
 }
