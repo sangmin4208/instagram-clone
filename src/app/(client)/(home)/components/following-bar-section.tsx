@@ -21,7 +21,7 @@ const FollowingBarSection: FunctionComponent<FollowingBarSectionProps> = () => {
     return <FollowingBarSectionSkeleton />
   }
   return (
-    <section>
+    <section className="relative z-0">
       {data && (
         <InfiniteScroll
           dataLength={data.length}
@@ -45,7 +45,7 @@ const FollowingBarSection: FunctionComponent<FollowingBarSectionProps> = () => {
                 <FollowingListItemSkeleton key={index} />
               ))}
             {!hasMore && (
-              <div className="flex flex-col items-center justify-center gap-2 -z-10">
+              <div className="flex flex-col items-center justify-center gap-2">
                 <Icons.SmilePlus size={32} />
                 <section className="flex flex-col items-center justify-center text-xs">
                   <p>새로운 사람을</p>

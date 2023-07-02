@@ -13,4 +13,8 @@ export const ApiEndPoint = {
     // return `/api/posts?page=${page}&limit=${limit}`
     return `/api/posts`
   },
+
+  fetchPost: (id: string) => {
+    return `/api/posts/${id}`
+  },
 }

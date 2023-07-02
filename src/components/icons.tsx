@@ -10,6 +10,7 @@ import {
   Search,
   Send,
   SmilePlus,
+  X,
 } from 'lucide-react'
 import { FcGoogle as Google } from 'react-icons/fc'
 const Icons = {
@@ -25,5 +26,6 @@ const Icons = {
   Loader,
   Comment,
   Send,
+  X,
 }
 export default Icons
