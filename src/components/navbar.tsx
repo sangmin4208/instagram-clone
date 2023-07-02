@@ -35,8 +35,8 @@ const NavBar: FunctionComponent<NavBarProps> = () => {
   const pathname = usePathname()
   const { data: session } = useSession()
   return (
-    <section className="container mb-2 border-b">
-      <nav className="z-10 flex items-center justify-between p-2 ">
+    <section className="container relative mb-2 border-b">
+      <nav className="flex items-center justify-between p-2 ">
         <Link href={AppPath.home}>
           <h1 className="text-lg font-bold">Instagram</h1>
         </Link>

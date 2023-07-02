@@ -11,7 +11,8 @@ export const getFollowingPostsOf = async (
         title,
         "id":_id,
         "text": comments[0].content,
-        "author": author->displayName,    
+        "author": author->displayName,
+        "authorImage": author->image,  
         "likes": likes[]->displayName,
         "comments": count(comments),
         "createdAt": _createdAt,
@@ -26,7 +27,7 @@ export const getFollowingPostsOf = async (
   const results = await client.fetch(query, { displayName })
   const posts = results.map((post: any) => ({
     ...post,
-    coverImage: urlForImage(post.coverImage!).width(240).url(),
+    coverImage: urlForImage(post.coverImage!).width(800).url(),
   }))
   return posts
 }

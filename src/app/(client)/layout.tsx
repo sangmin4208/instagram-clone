@@ -18,7 +18,7 @@ export default function ClientLayout({
 }) {
   return (
     <AuthProvider>
-      <header className="sticky top-0 bg-primary-foreground">
+      <header className="sticky top-0 z-[9999999] bg-primary-foreground">
         <NavBar />
       </header>
       <section className="container">
