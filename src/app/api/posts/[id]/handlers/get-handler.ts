@@ -7,7 +7,6 @@ export const getHandler = async (
 ): Promise<Response> => {
   try {
     const data = await getPost(id)
-    console.log(data)
 
     return new Response(JSON.stringify(data), { status: 200 })
   } catch (error) {

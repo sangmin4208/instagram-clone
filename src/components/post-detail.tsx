@@ -7,6 +7,7 @@ import Image from 'next/image'
 import PostActionBar from './post-action-bar'
 import { PostListItem } from '@/types/post'
 import PostUserAvatar from '@/components/post-user-avatar'
+import Spinner from '@/components/spinner'
 import useSWR from 'swr'
 
 interface PostDetailProps {
@@ -42,7 +43,9 @@ const PostDetail: FunctionComponent<PostDetailProps> = ({ post }) => {
         <PostUserAvatar authorName={author} authorImage={authorImage} />
         <ul className="h-full py-2 overflow-y-scroll border-t border-gray-200">
           {isLoading ? (
-            <p>Loading...</p>
+            <div className="flex items-center justify-center w-full mt-1">
+              <Spinner />
+            </div>
           ) : (
             data?.comments?.map((comment: any, index: number) => {
               return (

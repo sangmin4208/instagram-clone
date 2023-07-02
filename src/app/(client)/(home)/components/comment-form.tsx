@@ -20,11 +20,7 @@ const CommentForm: FunctionComponent<CommentFormProps> = ({ id }) => {
   const form = useForm()
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit((data) => {
-          console.log(data)
-        })}
-      >
+      <form onSubmit={form.handleSubmit((data) => {})}>
         <section className="flex items-end justify-center gap-2">
           <FormField
             control={form.control}
