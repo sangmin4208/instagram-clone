@@ -17,4 +17,10 @@ export const ApiEndPoint = {
   fetchPost: (id: string) => {
     return `/api/posts/${id}`
   },
+
+  fetchUsers: (searchTerm?: string, option?: PaginationOption) => {
+    let { limit = PaginiationLimit.users, page = 0 } = option ?? {}
+
+    return `/api/users?page=${page}&limit=${limit}&searchTerm=${searchTerm}`
+  },
 }

@@ -16,3 +16,8 @@ export type FollowingInfo = {
   followings: SimpleUserProfile[]
   totalCount: number
 }
+
+export type UserSearchResult = UserProfile & {
+  following: number
+  followers: number
+}
