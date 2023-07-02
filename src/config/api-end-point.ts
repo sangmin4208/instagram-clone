@@ -7,4 +7,10 @@ export const ApiEndPoint = {
 
     return `/api/me/followings?page=${page}&limit=${limit}`
   },
+  fetchPosts: (option?: PaginationOption) => {
+    // let { limit = PaginiationLimit.posts, page = 0 } = option ?? {}
+
+    // return `/api/posts?page=${page}&limit=${limit}`
+    return `/api/posts`
+  },
 }

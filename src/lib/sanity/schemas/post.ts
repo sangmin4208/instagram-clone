@@ -29,12 +29,7 @@ const post = defineType({
       },
       description: '포스트의 커버 이미지입니다.',
     }),
-    defineField({
-      title: 'Content',
-      name: 'content',
-      type: 'markdown',
-      description: '포스트의 내용입니다.',
-    }),
+
     defineField({
       title: 'Likes',
       name: 'likes',
@@ -65,7 +60,7 @@ const post = defineType({
             defineField({
               title: 'Content',
               name: 'content',
-              type: 'markdown',
+              type: 'string',
               validation: (Rule) => Rule.required(),
             }),
           ],

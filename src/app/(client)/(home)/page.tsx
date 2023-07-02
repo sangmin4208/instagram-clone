@@ -1,5 +1,5 @@
 import FollowingBarSection from './components/following-bar-section'
-import PostList from '@/components/post-list'
+import PostList from './components/post-list'
 import SideBar from '@/components/side-bar'
 
 import { getServerCurrentUser } from '@/services/user/get-server-current-user'
