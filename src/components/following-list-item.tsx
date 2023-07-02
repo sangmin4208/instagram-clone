@@ -1,8 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar'
 import { FunctionComponent } from 'react'
-import { FollowingUser } from '@/types/user'
+import { SimpleUser } from '@/types/user'
 interface FollowingListItemProps {
-  following: FollowingUser
+  following: SimpleUser
 }
 
 const FollowingListItem: FunctionComponent<FollowingListItemProps> = ({

@@ -2,6 +2,9 @@ import { PaginationOption } from '@/types/pagination-option'
 import { PaginiationLimit } from './pagination-limit'
 
 export const ApiEndPoint = {
+  fetchMe: () => {
+    return `/api/me`
+  },
   fetchMyFollowings: (option?: PaginationOption) => {
     let { limit = PaginiationLimit.followings, page = 0 } = option ?? {}
 

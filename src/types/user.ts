@@ -5,15 +5,17 @@ export type UserProfile = Pick<
   'displayName' | 'email' | 'image' | 'name' | 'bookmarks'
 > & {
   id: string
-  following: number
-  followers: number
+  following: SimpleUser[]
+  followers: SimpleUser[]
+  followingCount: number
+  followersCount: number
   posts: number
 }
 
-export type FollowingUser = Pick<UserProfile, 'id' | 'displayName' | 'image'>
+export type SimpleUser = Pick<UserProfile, 'id' | 'displayName' | 'image'>
 
 export type FollowingInfo = {
-  followings: FollowingUser[]
+  followings: SimpleUser[]
   totalCount: number
 }
 

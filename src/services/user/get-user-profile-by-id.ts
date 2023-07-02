@@ -4,18 +4,28 @@ import { UserSchema } from '@/types/schemas'
 import { client } from '@/lib/sanity/client'
 
 export const getUserProfileById = async (id: string): Promise<UserProfile> => {
-  const user = (await client.fetch(
+  const user = await client.fetch(
     `*[_type == "user" && _id == $id][0]{
       ...,
       "id": _id,
-      "following": count(following),
-      "followers": count(followers),
+      following[]->{
+        "id": _id,
+        username,
+        image
+      },  
+      followers[]->{
+        "id": _id,
+        username,
+        image
+      },
+      "followingCount": count(following),
+      "followersCount": count(followers),
       "posts": count(*[_type == "post" && author._ref == ^._id]),
     }`,
     {
       id,
     }
-  )) as UserSchema
+  )
   if (!user) {
     throw new Error(`User with id ${id} not found`)
   }
@@ -25,7 +35,7 @@ export const getUserProfileById = async (id: string): Promise<UserProfile> => {
   return {
     ...rest,
     displayName: user.displayName ?? user.name,
-    following: user.following ?? 0,
-    followers: user.followers ?? 0,
+    followingCount: user.followingCount ?? 0,
+    followersCount: user.followersCount ?? 0,
   } as unknown as UserProfile
 }
