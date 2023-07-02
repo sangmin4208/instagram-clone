@@ -2,10 +2,10 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { AppPath } from '@/config/app-path'
 import { FunctionComponent } from 'react'
 import Link from 'next/link'
-import { UserSearchResult } from '@/types/user'
+import { SearchUser } from '@/types/user'
 import { cn } from '@/lib/shadcn-ui/utils'
 interface UserSearchItemProps {
-  user: UserSearchResult
+  user: SearchUser
 }
 
 const UserSearchItem: FunctionComponent<UserSearchItemProps> = ({ user }) => {

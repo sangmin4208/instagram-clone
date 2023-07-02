@@ -5,19 +5,19 @@ export type UserProfile = Pick<
   'displayName' | 'email' | 'image' | 'name' | 'bookmarks'
 > & {
   id: string
+  following: number
+  followers: number
+  posts: number
 }
 
-export type SimpleUserProfile = Pick<
-  UserProfile,
-  'id' | 'displayName' | 'image'
->
+export type FollowingUser = Pick<UserProfile, 'id' | 'displayName' | 'image'>
 
 export type FollowingInfo = {
-  followings: SimpleUserProfile[]
+  followings: FollowingUser[]
   totalCount: number
 }
 
-export type UserSearchResult = UserProfile & {
+export type SearchUser = UserProfile & {
   following: number
   followers: number
 }

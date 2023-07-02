@@ -2,8 +2,8 @@
 import { FunctionComponent, useState } from 'react'
 import { ApiEndPoint } from '@/config/api-end-point'
 import { Input } from '@/components/ui/input'
+import { SearchUser } from '@/types/user'
 import UserSearchItem from '@/components/user-search-item'
-import { UserSearchResult } from '@/types/user'
 import { useDebounce } from '@/hooks/use-debounce'
 import useSWR from 'swr'
 interface UserSearchProps {}
@@ -11,7 +11,7 @@ interface UserSearchProps {}
 const UserSearch: FunctionComponent<UserSearchProps> = () => {
   const [keyword, setKeyword] = useState('')
   const debouncedKeyword = useDebounce(keyword)
-  const { data, isLoading, error } = useSWR<UserSearchResult[]>(
+  const { data, isLoading, error } = useSWR<SearchUser[]>(
     ApiEndPoint.fetchUsers(debouncedKeyword),
     (url) => fetch(url).then((res) => res.json())
   )

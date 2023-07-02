@@ -4,5 +4,5 @@ export const AppPath = {
   search: '/search',
   createPost: '/create-post',
   profile: '/profile',
-  userDetail: (slug: string) => `/users/${slug}`,
+  userDetail: (slug: string) => `/user/${slug}`,
 }

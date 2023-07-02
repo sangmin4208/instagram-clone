@@ -7,6 +7,10 @@ export const getUserProfileById = async (id: string): Promise<UserProfile> => {
   const user = (await client.fetch(
     `*[_type == "user" && _id == $id][0]{
       ...,
+      "id": _id,
+      "following": count(following),
+      "followers": count(followers),
+      "posts": count(*[_type == "post" && author._ref == ^._id]),
     }`,
     {
       id,
@@ -16,11 +20,12 @@ export const getUserProfileById = async (id: string): Promise<UserProfile> => {
     throw new Error(`User with id ${id} not found`)
   }
 
-  const { _rev, _createdAt, _updatedAt, _type, _id, ...rest } = user
+  const { _rev, _createdAt, _updatedAt, _type, ...rest } = user
 
   return {
     ...rest,
-    id: _id,
     displayName: user.displayName ?? user.name,
+    following: user.following ?? 0,
+    followers: user.followers ?? 0,
   } as unknown as UserProfile
 }

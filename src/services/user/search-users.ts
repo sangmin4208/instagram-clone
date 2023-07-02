@@ -1,4 +1,4 @@
-import { UserSearchResult } from '@/types/user'
+import { SearchUser } from '@/types/user'
 import { client } from '@/lib/sanity/client'
 
 export async function searchUsers(searchTerm?: string) {
@@ -22,7 +22,7 @@ export async function searchUsers(searchTerm?: string) {
     searchTerm ? { searchTerm: `*${searchTerm}*` } : undefined
   )
 
-  return data.map((user: UserSearchResult) => {
+  return data.map((user: SearchUser) => {
     return {
       ...user,
       following: user.following ?? 0,
