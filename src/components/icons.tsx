@@ -2,6 +2,7 @@ import {
   BookMarked,
   MessagesSquare as Comment,
   Github,
+  Grid,
   Heart,
   Home,
   Loader2 as Loader,
@@ -27,5 +28,6 @@ const Icons = {
   Comment,
   Send,
   X,
+  Grid,
 }
 export default Icons

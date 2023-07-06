@@ -36,9 +36,9 @@ const UserProfile: FunctionComponent<UserProfileProps> = ({ user }) => {
 
         <ul className="flex gap-4 my-4">
           {info.map((item) => (
-            <li key={item.title}>
+            <li key={item.title} className="flex items-center gap-2">
+              <span className="font-bold">{item.data}</span>
               <span>{item.title}</span>
-              <p>{item.data}</p>
             </li>
           ))}
         </ul>

@@ -11,10 +11,10 @@ interface PageProps {
 const Page: FunctionComponent<PageProps> = async ({ params: { id } }) => {
   const user = await getUserProfileById(id)
   return (
-    <>
+    <section>
       <UserProfile user={user} />
       <UserPost user={user} />
-    </>
+    </section>
   )
 }
 

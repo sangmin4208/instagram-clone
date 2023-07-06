@@ -1,5 +1,4 @@
 import { UserProfile } from '@/types/user'
-import { UserSchema } from '@/types/schemas'
 
 import { client } from '@/lib/sanity/client'
 
