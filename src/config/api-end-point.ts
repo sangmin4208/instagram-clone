@@ -26,4 +26,16 @@ export const ApiEndPoint = {
 
     return `/api/users?page=${page}&limit=${limit}&searchTerm=${searchTerm}`
   },
+
+  fetchUserPosts: (username: string) => {
+    return `/api/users/${username}/posts`
+  },
+
+  fetchUserLikedPosts: (username: string) => {
+    return `/api/users/${username}/liked`
+  },
+
+  fetchUserBookmarkedPosts: (username: string) => {
+    return `/api/users/${username}/bookmarked`
+  },
 }

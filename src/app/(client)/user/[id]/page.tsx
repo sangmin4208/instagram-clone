@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react'
+import UserPost from '@/components/user-post'
 import UserProfile from '@/components/user-profile'
 import { getUserProfileById } from '@/services/user/get-user-profile-by-id'
 interface PageProps {
@@ -12,6 +13,7 @@ const Page: FunctionComponent<PageProps> = async ({ params: { id } }) => {
   return (
     <>
       <UserProfile user={user} />
+      <UserPost user={user} />
     </>
   )
 }
