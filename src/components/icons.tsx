@@ -1,5 +1,5 @@
 import {
-  BookMarked,
+  Bookmark,
   MessagesSquare as Comment,
   Github,
   Grid,
@@ -22,7 +22,7 @@ const Icons = {
   Google,
   LogOut,
   SmilePlus,
-  BookMarked,
+  Bookmark,
   Heart,
   Loader,
   Comment,

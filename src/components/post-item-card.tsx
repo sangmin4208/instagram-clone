@@ -51,7 +51,7 @@ const PostItemCard: FunctionComponent<PostItemCardProps> = ({
       </section>
 
       <section className="mx-4 my-2">
-        <PostActionBar likesCount={likesCount} />
+        <PostActionBar post={post} />
         <PostItemCardContent
           authorName={author}
           text={text}

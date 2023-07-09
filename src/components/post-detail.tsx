@@ -63,7 +63,7 @@ const PostDetail: FunctionComponent<PostDetailProps> = ({ post }) => {
             })
           )}
         </ul>
-        <PostActionBar likesCount={likesCount} />
+        <PostActionBar post={post} />
         <CommentForm id={id} />
       </div>
     </section>

@@ -32,7 +32,7 @@ export const authOptions = {
   adapter: authAdapter as unknown as Adapter,
   callbacks: {
     session: async ({ session, token }) => {
-      const user = await authAdapter.getUser(token.sub!)
+      const user = await authAdapter.getUser(token.id as string)
       if (!user) return session
       return {
         user: {
@@ -44,7 +44,14 @@ export const authOptions = {
         },
       }
     },
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id
+      }
+      return token
+    },
   },
+
   pages: {
     signIn: AppPath.signIn,
   },

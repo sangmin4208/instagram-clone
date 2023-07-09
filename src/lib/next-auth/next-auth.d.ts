@@ -6,6 +6,9 @@ declare module 'next-auth' {
   interface Session {
     user: AdapterUser
   }
+  interface JWT {
+    id: string
+  }
 }
 
 declare module 'next-auth/adapters' {
