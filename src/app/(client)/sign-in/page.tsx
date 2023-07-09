@@ -1,7 +1,14 @@
 import { FunctionComponent } from 'react'
+import { Metadata } from 'next'
 import SignInPage from './sign-in-page'
 import { getServerCurrentUser } from '@/services/user/get-server-current-user'
 import { redirect } from 'next/navigation'
+
+export const metadata: Metadata = {
+  title: 'Sign in',
+  description: 'Sign in to Instagram clone',
+}
+
 interface PageProps {
   searchParams?: {
     error?: string

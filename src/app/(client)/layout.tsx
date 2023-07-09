@@ -5,7 +5,10 @@ import NavBar from '@/components/navbar'
 import { ReactNode } from 'react'
 
 export const metadata = {
-  title: 'Instagram',
+  title: {
+    default: 'Instagram clone',
+    template: '%s | Instagram clone',
+  },
   description: 'Instagram clone',
 }
 
