@@ -11,7 +11,7 @@ interface PostActionBarProps {
 }
 
 const PostActionBar: FunctionComponent<PostActionBarProps> = ({ post }) => {
-  const { id, likes, author, text, createdAt } = post
+  const { likes } = post
   const { data: session } = useSession()
   const likesCount = likes?.length ?? 0
   const liked =
@@ -19,7 +19,7 @@ const PostActionBar: FunctionComponent<PostActionBarProps> = ({ post }) => {
   const [bookmarked, setBookmarked] = useState(false)
   const { setLike } = usePosts()
   const handleLike = (like: boolean) => {
-    setLike(id, like)
+    setLike(post, session?.user?.displayName ?? '', like)
   }
 
   return (

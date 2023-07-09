@@ -7,19 +7,37 @@ export const usePosts = () => {
     data: posts,
     isLoading,
     error,
-  } = useSWR<PostListItem[]>(ApiEndPoint.fetchPosts(), fetcher)
-  const { mutate } = useSWRConfig()
-  const setLike = async (id: string, like: boolean) => {
-    const res = await fetch(ApiEndPoint.likePost(), {
-      method: 'PUT',
-      body: JSON.stringify({ id, like }),
-    })
-    if (res.ok) {
-      mutate(ApiEndPoint.fetchPosts())
+    mutate,
+  } = useSWR<PostListItem[]>(ApiEndPoint.fetchPosts(), fetchPosts)
+  const setLike = async (
+    post: PostListItem,
+    username: string,
+    like: boolean
+  ) => {
+    const { id } = post
+    const newPost = {
+      ...post,
+      likes: like
+        ? [...(post.likes ?? []), username]
+        : post.likes?.filter((like) => like !== username),
     }
+    const newPosts = posts?.map((post) => (post.id === id ? newPost : post))
+    return mutate(updateLike(ApiEndPoint.likePost(), id, like), {
+      optimisticData: newPosts,
+      populateCache: false,
+      revalidate: false,
+      rollbackOnError: true,
+    })
   }
 
   return { posts, isLoading, error, setLike }
 }
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
+const fetchPosts = (url: string) => fetch(url).then((res) => res.json())
+const updateLike = (url: string, id: string, like: boolean) => {
+  console.log('updateLike', url, id, like)
+  return fetch(url, {
+    method: 'PUT',
+    body: JSON.stringify({ id, like }),
+  }).then((res) => res.json())
+}
