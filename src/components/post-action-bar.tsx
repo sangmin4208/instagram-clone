@@ -1,11 +1,10 @@
 'use client'
 import { FunctionComponent, useState } from 'react'
-import { ApiEndPoint } from '@/config/api-end-point'
 import Icons from '@/components/icons'
 import { PostListItem } from '@/types/post'
 import ToggleButton from '@/components/toggle-button'
 import { cn } from '@/lib/shadcn-ui/utils'
-import { useSWRConfig } from 'swr'
+import { usePosts } from '@/hooks/use-posts'
 import { useSession } from 'next-auth/react'
 interface PostActionBarProps {
   post: PostListItem
@@ -18,14 +17,9 @@ const PostActionBar: FunctionComponent<PostActionBarProps> = ({ post }) => {
   const liked =
     likes?.some((like) => like === session?.user?.displayName) ?? false
   const [bookmarked, setBookmarked] = useState(false)
-  const { mutate } = useSWRConfig()
+  const { setLike } = usePosts()
   const handleLike = (like: boolean) => {
-    fetch('api/likes', {
-      method: 'PUT',
-      body: JSON.stringify({ id, like }),
-    }).then(() => {
-      mutate(ApiEndPoint.fetchPosts())
-    })
+    setLike(id, like)
   }
 
   return (

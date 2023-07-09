@@ -38,4 +38,8 @@ export const ApiEndPoint = {
   fetchUserBookmarkedPosts: (username: string) => {
     return `/api/users/${username}/bookmarked`
   },
+
+  likePost: () => {
+    return `/api/likes`
+  },
 }
