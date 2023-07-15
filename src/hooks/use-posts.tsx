@@ -35,7 +35,6 @@ export const usePosts = () => {
 
 const fetchPosts = (url: string) => fetch(url).then((res) => res.json())
 const updateLike = (url: string, id: string, like: boolean) => {
-  console.log('updateLike', url, id, like)
   return fetch(url, {
     method: 'PUT',
     body: JSON.stringify({ id, like }),
